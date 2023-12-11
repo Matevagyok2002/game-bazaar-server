@@ -14,9 +14,9 @@ public class Listing {
     public String title;
     public ContactInfo contactInfo;
     public String description;
-    public String[] images;
+    public String imagesId;
 
-    public Listing(String id, String sellerId, String[] categories, Double price, String title, ContactInfo contactInfo, String description, String[] images) {
+    public Listing(String id, String sellerId, String[] categories, Double price, String title, ContactInfo contactInfo, String description, String imagesId) {
         this.id = id;
         this.sellerId = sellerId;
         this.categories = categories;
@@ -24,6 +24,6 @@ public class Listing {
         this.title = title;
         this.contactInfo = contactInfo;
         this.description = description;
-        this.images = images;
+        this.imagesId = imagesId;
     }
 }

@@ -10,8 +10,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @SpringBootApplication(scanBasePackages = "com.gamebazaar.gamebazaarserver", exclude = {SecurityAutoConfiguration.class, UserDetailsServiceAutoConfiguration.class})
 public class GameBazaarServerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GameBazaarServerApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GameBazaarServerApplication.class, args);
+    }
 
 }
