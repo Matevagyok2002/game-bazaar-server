@@ -17,6 +17,7 @@ import java.security.SecureRandom;
 import java.util.Base64;
 
 @RestController
+@CrossOrigin
 public class AuthenticationController {
 
     public final UserService userService;

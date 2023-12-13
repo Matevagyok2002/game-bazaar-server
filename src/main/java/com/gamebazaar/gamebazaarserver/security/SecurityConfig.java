@@ -22,7 +22,7 @@ public class SecurityConfig {
                                 .anyRequest().authenticated() // Require authentication for all other endpoints
                 )
                 .addFilterBefore(new AuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-                .csrf(AbstractHttpConfigurer::disable);
+                .csrf(AbstractHttpConfigurer::disable).cors(AbstractHttpConfigurer::disable);
 
         return http.build();
     }
