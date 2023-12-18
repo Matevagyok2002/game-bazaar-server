@@ -42,7 +42,7 @@ public class ListingService {
         }
 
         if (seller != null) {
-            query.addCriteria(Criteria.where("sellerId").is(seller));
+            query.addCriteria(Criteria.where("seller").is(seller));
         }
 
         return mongoOperations.find(query, Listing.class);

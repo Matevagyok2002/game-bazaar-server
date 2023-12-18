@@ -104,7 +104,7 @@ public class ListingController {
     @PostMapping("/post-listing")
     public ResponseEntity<String> postListing(@RequestBody Listing listing){
         String imageId = generateId();
-        listing.imagesId = imageId;
+        listing.imageId = imageId;
         listingService.create(listing);
         return ResponseEntity.ok(imageId);
     }
