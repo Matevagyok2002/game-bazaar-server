@@ -109,7 +109,7 @@ public class ListingController {
         return ResponseEntity.ok(imageId);
     }
 
-    @PostMapping("/edit-listing")
+    @PostMapping("/update-listing")
     public ResponseEntity<String> editListing(@RequestBody Listing listing){
         listingService.update(listing);
         return ResponseEntity.ok("");
