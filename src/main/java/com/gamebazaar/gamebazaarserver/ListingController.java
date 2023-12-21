@@ -5,6 +5,7 @@ import com.gamebazaar.gamebazaarserver.database.entities.User;
 import com.gamebazaar.gamebazaarserver.database.services.ListingService;
 import com.gamebazaar.gamebazaarserver.database.services.UserService;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -106,7 +107,9 @@ public class ListingController {
         String imageId = generateId();
         listing.imageId = imageId;
         listingService.create(listing);
-        return ResponseEntity.ok(imageId);
+        JsonObject imageIdObject = new JsonObject();
+        imageIdObject.addProperty("imageId", imageId);
+        return ResponseEntity.ok(imageIdObject.toString());
     }
 
     @PostMapping("/update-listing")
