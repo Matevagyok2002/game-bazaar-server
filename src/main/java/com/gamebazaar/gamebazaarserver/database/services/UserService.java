@@ -19,7 +19,7 @@ public class UserService {
         return userRepository.findByUsername(username).password.equals(password);
     }
 
-    public User findById(String id){return userRepository.findById(id).get();}
+    public User findByUsername(String username){return userRepository.findByUsername(username);}
 
     public void create(User user) {
         userRepository.save(user);

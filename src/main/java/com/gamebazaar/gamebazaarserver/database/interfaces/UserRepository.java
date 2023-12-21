@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.repository.Query;
 
 public interface UserRepository extends MongoRepository<User, String> {
 
-    @Query("{'username': {'$eq': ?0}}")
+    @Query("{'username': ?0}")
     public User findByUsername(String username);
 }

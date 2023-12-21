@@ -34,18 +34,8 @@ public class AuthenticationFilter extends GenericFilterBean {
             Authentication authentication = AuthenticationController.getAuthentication((HttpServletRequest) request);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         } catch (Exception exp) {
-            /*
-            HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            httpResponse.setContentType(MediaType.APPLICATION_JSON_VALUE);
-            PrintWriter writer = httpResponse.getWriter();
-            writer.print(exp.getMessage());
-            writer.flush();
-            writer.close();
-             */
-            //System.out.println("Unauthorized request from '"+request.getRemoteAddr()+"' has been declined at "+new Date());
+            //
         }
-
         filterChain.doFilter(request, response);
     }
 }

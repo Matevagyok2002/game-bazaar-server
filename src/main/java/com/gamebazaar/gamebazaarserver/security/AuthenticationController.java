@@ -42,9 +42,9 @@ public class AuthenticationController {
             return ResponseEntity.status(401).body("Error: Incorrect credentials.");
     }
 
-    @GetMapping("/user/{id}")
-    public ResponseEntity<String> findById(@PathVariable String id){
-        return ResponseEntity.ok(gson.toJson(userService.findById(id)));
+    @GetMapping("/user/{username}")
+    public ResponseEntity<String> findByUsername(@PathVariable String username){
+        return ResponseEntity.ok(gson.toJson(userService.findByUsername(username)));
     }
 
     @GetMapping("logout")
