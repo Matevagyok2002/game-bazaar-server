@@ -25,23 +25,23 @@ public class ListingService {
         this.listingRepository = listingRepository;
         this.mongoOperations = mongoOperations;}
 
-    public List<Listing> searchByParams(String category, String title, Double maxPrice, String seller){
+    public List<Listing> searchByParams(String category, String title, String maxPrice, String seller){
         Query query = new Query();
 
-        if (category != null) {
+        if (category != null && !category.equals("-")) {
             query.addCriteria(Criteria.where("categories").in(category));
         }
 
-        if (title != null) {
+        if (title != null && !title.equals("-")) {
             Pattern regex = Pattern.compile(title, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
             query.addCriteria(Criteria.where("title").regex(regex));
         }
 
-        if (maxPrice != null) {
-            query.addCriteria(Criteria.where("price").lte(maxPrice));
+        if (maxPrice != null && !maxPrice.equals("-")) {
+            query.addCriteria(Criteria.where("price").lte(Double.parseDouble(maxPrice)));
         }
 
-        if (seller != null) {
+        if (seller != null && !seller.equals("-")) {
             query.addCriteria(Criteria.where("seller").is(seller));
         }
 

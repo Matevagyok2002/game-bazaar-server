@@ -78,7 +78,7 @@ public class ListingController {
     @GetMapping("/search")
     public ResponseEntity<String> search(@RequestParam(required = false) String category,
                                          @RequestParam(required = false) String title,
-                                         @RequestParam(required = false) Double maxPrice,
+                                         @RequestParam(required = false) String maxPrice,
                                          @RequestParam(required = false) String seller){
         return ResponseEntity.ok(gson.toJson(listingService.searchByParams(category, title, maxPrice, seller)));
     }
