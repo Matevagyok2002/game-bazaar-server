@@ -107,9 +107,7 @@ public class ListingController {
         String imageId = generateId();
         listing.imageId = imageId;
         listingService.create(listing);
-        JsonObject imageIdObject = new JsonObject();
-        imageIdObject.addProperty("imageId", imageId);
-        return ResponseEntity.ok(imageIdObject.toString());
+        return ResponseEntity.ok(imageId);
     }
 
     @PostMapping("/update-listing")
