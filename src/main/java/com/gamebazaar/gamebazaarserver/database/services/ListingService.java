@@ -33,7 +33,7 @@ public class ListingService {
         }
 
         if (title != null && !title.equals("-")) {
-            Pattern regex = Pattern.compile(title, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+            Pattern regex = Pattern.compile(title, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE );
             query.addCriteria(Criteria.where("title").regex(regex));
         }
 

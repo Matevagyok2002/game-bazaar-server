@@ -1,11 +1,8 @@
 package com.gamebazaar.gamebazaarserver;
-
 import com.gamebazaar.gamebazaarserver.database.entities.Listing;
-import com.gamebazaar.gamebazaarserver.database.entities.User;
 import com.gamebazaar.gamebazaarserver.database.services.ListingService;
 import com.gamebazaar.gamebazaarserver.database.services.UserService;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -58,10 +55,9 @@ public class ListingController {
 
             // Get the file bytes
             byte[] bytes = file.getBytes();
-            String fileExtension = file.getOriginalFilename().split("\\.")[1];
 
             // Define a file path to save the uploaded file (you can change this to your desired path)
-            String filePath = IMAGE_DIRECTORY + imageId + "." + fileExtension;
+            String filePath = IMAGE_DIRECTORY + imageId + ".png";
 
             // Create a new file and write the bytes to it
             File newFile = new File(filePath);
