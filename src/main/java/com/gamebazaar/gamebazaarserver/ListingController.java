@@ -112,8 +112,8 @@ public class ListingController {
         return ResponseEntity.ok("");
     }
 
-    @DeleteMapping("/delete-listing")
-    public ResponseEntity<String> deleteListing(@RequestParam String id){
+    @DeleteMapping("/delete-listing/{id}")
+    public ResponseEntity<String> deleteListing(@PathVariable String id){
         listingService.delete(id);
         return ResponseEntity.ok("");
     }
