@@ -32,7 +32,8 @@ public class AuthenticationController {
     public Gson gson = new Gson();
 
     @GetMapping("/login")
-    public ResponseEntity<String> login(@RequestHeader String username, @RequestHeader String password){
+    public ResponseEntity<String> login(@RequestHeader("X_Username") String username,
+                                        @RequestHeader("X_Password") String password){
         if (userService.checkCredentials(username, password)) {
             String token = tokenGenerator();
             tokens.addToken(token);
