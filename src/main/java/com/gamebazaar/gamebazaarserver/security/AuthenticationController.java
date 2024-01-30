@@ -1,5 +1,6 @@
 package com.gamebazaar.gamebazaarserver.security;
 
+import com.gamebazaar.gamebazaarserver.database.entities.ContactInfo;
 import com.gamebazaar.gamebazaarserver.database.entities.User;
 import com.gamebazaar.gamebazaarserver.database.services.UserService;
 import com.google.gson.Gson;
@@ -41,6 +42,15 @@ public class AuthenticationController {
         }
         else
             return ResponseEntity.status(401).body("Error: Incorrect credentials.");
+    }
+
+    @GetMapping("/check-token")
+    public ResponseEntity<String> checkToken(@RequestParam String token){
+        System.out.println(tokens.getTokens().containsKey(token));
+        if (tokens.getTokens().containsKey(token))
+            return ResponseEntity.ok("active");
+        else
+            return ResponseEntity.status(401).body("expired");
     }
 
     @GetMapping("/user/{username}")
