@@ -27,7 +27,7 @@ public class AuthenticationController {
     public AuthenticationController(UserService userService) {
         this.userService = userService;
     }
-    private static final String AUTH_TOKEN_HEADER_NAME = "Authentication";
+    private static final String AUTH_TOKEN_HEADER_NAME = "Authorization";
     private static TokenManager tokens = new TokenManager();
 
     public Gson gson = new Gson();

@@ -16,7 +16,10 @@ public class UserService {
     public UserService(UserRepository userRepository) {this.userRepository = userRepository;}
 
     public boolean checkCredentials(String username, String password) {
-        return userRepository.findByUsername(username).password.equals(password);
+        if (userRepository.findByUsername(username) != null)
+            return userRepository.findByUsername(username).password.equals(password);
+        else
+            return false;
     }
 
     public User findByUsername(String username){return userRepository.findByUsername(username);}
